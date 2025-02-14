@@ -198,10 +198,12 @@ function update() {
 }
 
 // Game loop
-function gameLoop() {
+function gameLoop(time) {
+    let dt = (time - lastTime) / 1000; // Convert delta time to seconds
+    lastTime = time; // Update lastTime for next calculation
     update(); // Calls the update function to refresh the game state
     requestAnimationFrame(gameLoop); // Continuously loops the game by calling itself
 }
 
 // Start the game
-gameLoop(); // Initiates the game loop to start the game
+gameLoop(time); // Initiates the game loop to start the game
